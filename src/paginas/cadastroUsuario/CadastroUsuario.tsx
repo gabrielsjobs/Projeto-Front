@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import User from '../../models/User';
-import { cadastroUsuario } from '../../service/Service';
+import { cadastrarUsuario } from '../../service/Service';
 import { Grid, Typography, Button, TextField, MenuItem } from '@material-ui/core';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -55,7 +55,7 @@ function CadastroUsuario() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if (confirmarSenha == user.senha) {
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+            cadastrarUsuario(`/usuarios/cadastrar`, user, setUserResult)
             toast.success('Usuario cadastrado com sucesso', {
                 position: "top-right",
                 autoClose: 2000,
